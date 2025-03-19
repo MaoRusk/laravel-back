@@ -7,14 +7,8 @@ use App\Responses\ApiResponse;
 use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Routing\Controllers\Middleware;
 
-class RegionController extends ApiController implements HasMiddleware
+class RegionController extends ApiController
 {
-    public static function middleware()
-    {
-        return [
-            new Middleware('permission:regions.index', only: ['index']),
-        ];
-    }
 
     public function index(): ApiResponse
     {

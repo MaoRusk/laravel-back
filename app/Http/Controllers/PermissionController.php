@@ -12,14 +12,9 @@ use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Support\Facades\DB;
 
-class PermissionController extends ApiController implements HasMiddleware
+class PermissionController extends ApiController
 {
-    public static function middleware()
-    {
-        return [
-            new Middleware('permission:roles.index', only: ['index']),
-        ];
-    }
+
     /**
      * Display a listing of the resource.
      */

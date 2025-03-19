@@ -15,7 +15,6 @@ class DeveloperController extends ApiController implements HasMiddleware
     public static function middleware()
     {
         return [
-            new Middleware('permission:developers.index', only: ['index']),
             new Middleware('permission:developers.show', only: ['show']),
             new Middleware('permission:developers.create', only: ['store']),
             new Middleware('permission:developers.update', only: ['update']),

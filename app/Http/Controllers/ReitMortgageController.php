@@ -16,7 +16,6 @@ class ReitMortgageController extends ApiController implements HasMiddleware
     public static function middleware()
     {
         return [
-            new Middleware('permission:reit-mortgage.index', only: ['index']),
             new Middleware('permission:reit-mortgage.show', only: ['show']),
             new Middleware('permission:reit-mortgage.create', only: ['store']),
             new Middleware('permission:reit-mortgage.update', only: ['update']),

@@ -19,7 +19,6 @@ class IndustrialParkController extends ApiController implements HasMiddleware
     public static function middleware()
     {
         return [
-            new Middleware('permission:industrial-parks.index', only: ['index']),
             new Middleware('permission:industrial-parks.show', only: ['show']),
             new Middleware('permission:industrial-parks.create', only: ['store']),
             new Middleware('permission:industrial-parks.update', only: ['update']),

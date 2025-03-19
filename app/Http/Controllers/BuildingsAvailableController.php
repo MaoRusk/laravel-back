@@ -27,7 +27,6 @@ class BuildingsAvailableController extends ApiController implements HasMiddlewar
     public static function middleware()
     {
         return [
-            new Middleware('permission:buildings.availability.index', only: ['index']),
             new Middleware('permission:buildings.availability.show', only: ['show']),
             new Middleware('permission:buildings.availability.create', only: ['store']),
             new Middleware('permission:buildings.availability.update', only: ['update']),

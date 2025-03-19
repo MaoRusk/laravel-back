@@ -19,7 +19,6 @@ class LandContactController extends ApiController implements HasMiddleware
     public static function middleware()
     {
         return [
-            new Middleware('permission:lands.contacts.index', only: ['index']),
             new Middleware('permission:lands.contacts.show', only: ['show']),
             new Middleware('permission:lands.contacts.create', only: ['store']),
             new Middleware('permission:lands.contacts.update', only: ['update']),

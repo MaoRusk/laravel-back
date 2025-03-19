@@ -16,7 +16,6 @@ class ReitInstrumentController extends ApiController implements HasMiddleware
     public static function middleware()
     {
         return [
-            new Middleware('permission:reit-instruments.index', only: ['index']),
             new Middleware('permission:reit-instruments.show', only: ['show']),
             new Middleware('permission:reit-instruments.create', only: ['store']),
             new Middleware('permission:reit-instruments.update', only: ['update']),

@@ -15,7 +15,6 @@ class ReitAnnualController extends ApiController implements HasMiddleware
     public static function middleware()
     {
         return [
-            new Middleware('permission:reit-annual.index', only: ['index']),
             new Middleware('permission:reit-annual.show', only: ['show']),
             new Middleware('permission:reit-annual.create', only: ['store']),
             new Middleware('permission:reit-annual.update', only: ['update']),

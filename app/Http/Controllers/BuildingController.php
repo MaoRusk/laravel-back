@@ -37,25 +37,11 @@ class BuildingController extends ApiController implements HasMiddleware
     public static function middleware()
     {
         return [
-            new Middleware('permission:buildings.index', only: ['index']),
             new Middleware('permission:buildings.show', only: ['show']),
             new Middleware('permission:buildings.create', only: ['store']),
             new Middleware('permission:buildings.update', only: ['update']),
             new Middleware('permission:buildings.approve', only: ['approve']),
             new Middleware('permission:buildings.draft', only: ['draft']),
-            new Middleware('permission:buildings.listClasses', only: ['listClasses']),
-            new Middleware('permission:buildings.listLoadingDoors', only: ['listLoadingDoors']),
-            new Middleware('permission:buildings.listPhases', only: ['listPhases']),
-            new Middleware('permission:buildings.listTenancies', only: ['listTenancies']),
-            new Middleware('permission:buildings.listLightnings', only: ['listLightnings']),
-            new Middleware('permission:buildings.listTypeGenerations', only: ['listTypeGenerations']),
-            new Middleware('permission:buildings.listTypeConstructions', only: ['listTypeConstructions']),
-            new Middleware('permission:buildings.listFireProtectionSystems', only: ['listFireProtectionSystems']),
-            new Middleware('permission:buildings.listTechnicalImprovements', only: ['listTechnicalImprovements']),
-            new Middleware('permission:buildings.listBuildingsCompanyTypes', only: ['listBuildingsCompanyTypes']),
-            new Middleware('permission:buildings.listFinalUses', only: ['listFinalUses']),
-            new Middleware('permission:buildings.listBuildingsStatus', only: ['listBuildingsStatus']),
-            new Middleware('permission:buildings.listDeals', only: ['listDeals']),
             new Middleware('permission:buildings.uploadFiles', only: ['uploadFiles']),
             new Middleware('permission:buildings.layoutDesign', only: ['layoutDesign']),
         ];

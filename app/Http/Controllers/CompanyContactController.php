@@ -19,7 +19,6 @@ class CompanyContactController extends ApiController implements HasMiddleware
     public static function middleware()
     {
         return [
-            new Middleware('permission:companies.contact.index', only: ['index']),
             new Middleware('permission:companies.contact.show', only: ['show']),
             new Middleware('permission:companies.contact.create', only: ['store']),
             new Middleware('permission:companies.contact.update', only: ['update']),

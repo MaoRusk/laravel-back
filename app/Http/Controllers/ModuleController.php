@@ -8,14 +8,9 @@ use App\Responses\ApiResponse;
 use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Routing\Controllers\Middleware;
 
-class ModuleController extends ApiController implements HasMiddleware
+class ModuleController extends ApiController
 {
-    public static function middleware()
-    {
-        return [
-            new Middleware('permission:modules.index', only: ['index']),
-        ];
-    }
+
 
     /**
      * @return ApiResponse

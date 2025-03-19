@@ -8,14 +8,9 @@ use App\Responses\ApiResponse;
 use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Routing\Controllers\Middleware;
 
-class MarketController extends ApiController implements HasMiddleware
+class MarketController extends ApiController
 {
-    public static function middleware()
-    {
-        return [
-            new Middleware('permission:markets.index', only: ['index']),
-        ];
-    }
+
 
     public function index(Request $request): ApiResponse
     {

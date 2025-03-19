@@ -18,7 +18,6 @@ class LandAvailableController extends ApiController implements HasMiddleware
     public static function middleware()
     {
         return [
-            new Middleware('permission:lands.available.index', only: ['index']),
             new Middleware('permission:lands.available.show', only: ['show']),
             new Middleware('permission:lands.available.create', only: ['store']),
             new Middleware('permission:lands.available.update', only: ['update']),

@@ -16,7 +16,6 @@ class ReitCeteController extends ApiController implements HasMiddleware
     public static function middleware()
     {
         return [
-            new Middleware('permission:reit-cetes.index', only: ['index']),
             new Middleware('permission:reit-cetes.show', only: ['show']),
             new Middleware('permission:reit-cetes.create', only: ['store']),
             new Middleware('permission:reit-cetes.update', only: ['update']),

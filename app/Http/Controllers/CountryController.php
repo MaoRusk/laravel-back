@@ -8,14 +8,9 @@ use App\Models\Country;
 use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Routing\Controllers\Middleware;
 
-class CountryController extends ApiController implements HasMiddleware
+class CountryController extends ApiController
 {
-    public static function middleware()
-    {
-        return [
-            new Middleware('permission:countries.index', only: ['index']),
-        ];
-    }
+
 
     /**
      * @return ApiResponse

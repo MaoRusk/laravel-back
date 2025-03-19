@@ -15,7 +15,6 @@ class ReitsTimelineController extends ApiController implements HasMiddleware
     public static function middleware()
     {
         return [
-            new Middleware('permission:reits-timeline.index', only: ['index']),
             new Middleware('permission:reits-timeline.show', only: ['show']),
             new Middleware('permission:reits-timeline.create', only: ['store']),
             new Middleware('permission:reits-timeline.update', only: ['update']),

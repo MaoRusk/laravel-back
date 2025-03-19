@@ -18,7 +18,6 @@ class LandAbsorptionController extends ApiController implements HasMiddleware
     public static function middleware()
     {
         return [
-            new Middleware('permission:lands.absorption.index', only: ['index']),
             new Middleware('permission:lands.absorption.show', only: ['show']),
             new Middleware('permission:lands.absorption.create', only: ['store']),
             new Middleware('permission:lands.absorption.update', only: ['update']),

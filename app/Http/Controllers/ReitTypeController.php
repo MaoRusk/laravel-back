@@ -15,7 +15,6 @@ class ReitTypeController extends ApiController implements HasMiddleware
     public static function middleware()
     {
         return [
-            new Middleware('permission:reit-types.index', only: ['index']),
             new Middleware('permission:reit-types.show', only: ['show']),
             new Middleware('permission:reit-types.create', only: ['store']),
             new Middleware('permission:reit-types.update', only: ['update']),
