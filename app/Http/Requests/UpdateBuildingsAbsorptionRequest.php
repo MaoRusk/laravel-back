@@ -80,6 +80,7 @@ class UpdateBuildingsAbsorptionRequest extends FormRequest
             'abs_broker_id' => 'nullable|exists:cat_brokers,id',
             'abs_shelter_id' => 'nullable|exists:cat_shelters,id',
             'sqftToM2' => 'boolean',
+            'yrToMo' => 'boolean',
             'size_sf' => [
                 'required',
                 'integer',

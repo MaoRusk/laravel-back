@@ -70,7 +70,7 @@ class BuildingsAbsorptionController extends ApiController implements HasMiddlewa
         $validated['building_id'] = $building->id;
         $validated['building_state'] = BuildingState::ABSORPTION;
 
-        if ($validated['sqftToM2'] ?? false) {
+        if (!empty($validated['sqftToM2']) || !empty($validated['yrToMo'])) {
             $validated = $this->buildingAvailableService->convertMetrics($validated);
         }
 
@@ -141,7 +141,7 @@ class BuildingsAbsorptionController extends ApiController implements HasMiddlewa
         $validated['building_id'] = $building->id;
         $validated['building_state'] = BuildingState::ABSORPTION;
         try {
-            if ($validated['sqftToM2'] ?? false) {
+            if (!empty($validated['sqftToM2']) || !empty($validated['yrToMo'])) {
                 $validated = $this->buildingAvailableService->convertMetrics($validated);
             }
             if (!empty($validated['fire_protection_system']) && is_array($validated['fire_protection_system'])) {

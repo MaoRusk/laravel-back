@@ -69,7 +69,7 @@ class BuildingsAvailableController extends ApiController implements HasMiddlewar
         $validated['building_id'] = $building->id;
         $validated['building_state'] = BuildingState::AVAILABILITY;
 
-        if ($validated['sqftToM2'] ?? false) {
+        if (!empty($validated['sqftToM2']) || !empty($validated['yrToMo'])) {
             $validated = $this->buildingAvailableService->convertMetrics($validated);
         }
         if (!empty($validated['fire_protection_system']) && is_array($validated['fire_protection_system'])) {
@@ -139,7 +139,7 @@ class BuildingsAvailableController extends ApiController implements HasMiddlewar
         $validated['building_id'] = $building->id;
         $validated['building_state'] = 'Availability';
         try {
-            if ($validated['sqftToM2'] ?? false) {
+            if (!empty($validated['sqftToM2']) || !empty($validated['yrToMo'])) {
                 $validated = $this->buildingAvailableService->convertMetrics($validated);
             }
             if (!empty($validated['fire_protection_system']) && is_array($validated['fire_protection_system'])) {

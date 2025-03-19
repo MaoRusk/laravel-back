@@ -192,32 +192,42 @@ class BuildingsAvailableService
      */
     public function convertMetrics(array $data): array
     {
-        if (isset($data['size_sf'])) {
-            $data['size_sf'] = $this->convertM2ToSqFt($data['size_sf']);
-        }
+        $sqftToM2 = $data['sqftToM2'] ?? false;
+        $yrToMo = $data['yrToMo'] ?? false;
 
-        if (isset($data['truck_court_ft'])) {
-            $data['truck_court_ft'] = $this->convertMToFt($data['truck_court_ft']);
-        }
 
-        if (isset($data['avl_minimum_space_sf'])) {
-            $data['avl_minimum_space_sf'] = $this->convertM2ToSqFt($data['avl_minimum_space_sf']);
-        }
+        if($sqftToM2) {
+            if (isset($data['size_sf'])) {
+                $data['size_sf'] = $this->convertM2ToSqFt($data['size_sf']);
+            }
 
-        if (isset($data['avl_building_dimensions_ft'])) {
-            $data['avl_building_dimensions_ft'] = $this->convertColumnsSpacingToFt($data['avl_building_dimensions_ft']);
+            if (isset($data['truck_court_ft'])) {
+                $data['truck_court_ft'] = $this->convertMToFt($data['truck_court_ft']);
+            }
+
+            if (isset($data['avl_minimum_space_sf'])) {
+                $data['avl_minimum_space_sf'] = $this->convertM2ToSqFt($data['avl_minimum_space_sf']);
+            }
+
+            if (isset($data['avl_building_dimensions_ft'])) {
+                $data['avl_building_dimensions_ft'] = $this->convertColumnsSpacingToFt($data['avl_building_dimensions_ft']);
+            }
         }
 
         if (isset($data['avl_min_lease'])) {
-            $data['avl_min_lease'] = $this->convertUsdM2ToUsdSqft($data['avl_min_lease']);
+            $data['avl_min_lease'] = $this->convertUsdM2ToUsdSqft($data['avl_min_lease'], $sqftToM2, $yrToMo);
         }
 
         if (isset($data['avl_max_lease'])) {
-            $data['avl_max_lease'] = $this->convertUsdM2ToUsdSqft($data['avl_max_lease']);
+            $data['avl_max_lease'] = $this->convertUsdM2ToUsdSqft($data['avl_max_lease'], $sqftToM2, $yrToMo);
+        }
+
+        if (isset($data['abs_sale_price'])) {
+            $data['abs_sale_price'] = $this->convertUsdM2ToUsdSqft($data['abs_sale_price'], $sqftToM2, $yrToMo);
         }
 
         if (isset($data['abs_closing_rate'])) {
-            $data['abs_closing_rate'] = $this->convertUsdM2ToUsdSqft($data['abs_closing_rate']);
+            $data['abs_closing_rate'] = $this->convertUsdM2ToUsdSqft($data['abs_closing_rate'], $sqftToM2, $yrToMo);
         }
 
         return $data;
@@ -245,8 +255,13 @@ class BuildingsAvailableService
      * @param float $usdM2
      * @return int
      */
-    public function convertUsdM2ToUsdSqft(float $usdM2): int
+    public function convertUsdM2ToUsdSqft(float $usdM2, bool $sqftToM2 = false, bool $yrToMo = false): int
     {
+        if($sqftToM2 && $yrToMo) {
+            return (int) round($usdM2 / (10.764 * 12));
+        } elseif ($yrToMo) {
+            return (int) round($usdM2 / 12);
+        }
         return (int) round($usdM2 / 10.764);
     }
 

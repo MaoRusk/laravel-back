@@ -71,6 +71,7 @@ class UpdateBuildingAvailableDraftRequest extends FormRequest
                 }
             ],
             'sqftToM2' => 'boolean',
+            'yrToMo' => 'boolean',
             'size_sf' => [
                 'required',
                 'integer',
