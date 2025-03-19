@@ -68,7 +68,7 @@ class LandsAvailableService
                         ->orWhere('avl_size_ha', 'like', "%{$search}%")
                         ->orWhere('avl_broker_id', 'like', "%{$search}%")
                         ->orWhere('avl_deal', 'like', "%{$search}%")
-                        ->orWhere('avl_minimum', 'like', "%{$search}%");
+                        ->orWhere('avl_minimum_size_ha', 'like', "%{$search}%");
                 });
             })
             ->when($validatedData['land_condition'] ?? false, function ($query, $land_condition) {
@@ -83,8 +83,8 @@ class LandsAvailableService
             ->when($validatedData['avl_deal'] ?? false, function ($query, $avl_deal) {
                 $query->where('avl_deal', 'like', "%{$avl_deal}%");
             })
-            ->when($validatedData['avl_minimum'] ?? false, function ($query, $avl_minimum) {
-                $query->where('avl_minimum', 'like', "%{$avl_minimum}%");
+            ->when($validatedData['avl_minimum_size_ha'] ?? false, function ($query, $avl_minimum) {
+                $query->where('avl_minimum_size_ha', 'like', "%{$avl_minimum}%");
             })
             ->orderBy($order, $direction)
             ->paginate($size);

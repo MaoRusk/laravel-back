@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 
 /**
- * 
+ *
  *
  * @property int $id
  * @property int $land_id
@@ -20,7 +20,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string $land_state
  * @property int|null $avl_size_sm
  * @property string|null $avl_land_sm
- * @property int|null $avl_minimum
+ * @property int|null $avl_minimum_size_ha
  * @property string|null $avl_min_sale
  * @property string|null $avl_max_sale
  * @property string|null $avl_zoning
@@ -112,8 +112,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string|null $water
  * @property string|null $electric
  * @property string|null $abs_final_use
- * @property string|null $avl_date
- * @property string|null $abs_date
  * @property string $avl_deal
  * @method static \Illuminate\Database\Eloquent\Builder<static>|LandAvailable whereAbsComments($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|LandAvailable whereAbsDate($value)
@@ -152,17 +150,15 @@ class LandAvailable extends Model
         'kvas',
         'avl_broker_id',
         'avl_size_ha',
-        'avl_minimum',
+        'avl_minimum_size_ha',
         'avl_min_sale',
         'avl_max_sale',
         'avl_conditioned_construction',
-        'avl_date',
         'avl_deal',
         'avl_comments',
         'abs_company_id',
         'abs_country_id',
         'abs_size_ha',
-        'abs_date',
         'abs_closing_price',
         'abs_type_buyer',
         'abs_company_type',

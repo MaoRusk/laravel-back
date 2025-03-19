@@ -31,13 +31,12 @@ class StoreLandAvailableRequest extends FormRequest
             'kvas' => 'nullable|integer',
             'avl_broker_id' => 'nullable|exists:cat_brokers,id',
             'avl_size_ha' => 'nullable|integer',
-            'avl_minimum' => 'nullable|integer',
+            'avl_minimum_size_ha' => 'nullable|integer',
             'avl_min_sale' => 'nullable|numeric|min:0',
             'avl_max_sale' => 'nullable|numeric|min:0',
             'avl_conditioned_construction' => 'nullable|boolean',
-            'avl_date' => 'nullable|date',
             'avl_deal' => 'required|in:Lease,Sale',
-            'avl_comments' => 'nullable|string|max:45',
+            'avl_comments' => 'nullable|string|max:255',
         ];
     }
 }

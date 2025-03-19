@@ -31,9 +31,9 @@ class IndexLandsAvailableRequest extends FormRequest
             'avl_size_ha' => 'nullable|integer',
             'avl_broker_id' => 'nullable|integer',
             'avl_deal' => 'nullable|in:Lease,Sale',
-            'avl_minimum' => 'nullable|integer',
+            'avl_minimum_size_ha' => 'nullable|integer',
 
-            'column' => 'nullable|in:state,land_condition,avl_size_ha,avl_broker_id,avl_deal,avl_minimum',
+            'column' => 'nullable|in:state,land_condition,avl_size_ha,avl_broker_id,avl_deal,avl_minimum_size_ha',
         ];
     }
 }
