@@ -37,7 +37,7 @@ class StoreLandRequest extends FormRequest
             'kvas' => 'nullable|string|max:20',
             'zoning' => 'required|in:Industrial,Commercial,Residential',
             'parcel_shape' => 'required|in:Regular,Irregular',
-            'status' => 'required|in:Active,Inactive,Pending,Approved',
+            'status' => 'required|in:Enabled,Disabled,Pending,Approved',
         ];
     }
 }

@@ -80,7 +80,7 @@ class BuildingService
 
     public function update(Building $building, array $validated): Building
     {
-        if($validated['status'] === BuildingStatus::ACTIVE->value) {
+        if($validated['status'] === BuildingStatus::ENABLED->value) {
             $this->makeBuildingLogRecord($building);
         }
         $building->update($validated);
@@ -296,7 +296,7 @@ class BuildingService
             $validated['above_market_tis'] = implode(',', $validated['above_market_tis']);
         }
 
-        if (isset($validated['status']) && $validated['status'] === BuildingStatus::ACTIVE->value) {
+        if (isset($validated['status']) && $validated['status'] === BuildingStatus::ENABLED->value) {
         $updateData = Arr::except($validated, ['status']);
         $this->makeBuildingLogRecord($building);
         $building->update($updateData);

@@ -82,7 +82,7 @@ class UpdateBuildingDraftRequest extends FormRequest
                     }
                 }
             ],
-            'status' => 'required|in:Active,Draft',
+            'status' => 'required|in:Enabled,Draft',
             'columns_spacing_ft' => 'string|max:20',
             'bay_size' => 'string|max:20',
             'floor_thickness_in' => 'required|integer|min:0',

@@ -48,7 +48,7 @@ class StoreBuildingsAbsorptionRequest extends FormRequest
             'abs_building_phase' => 'required|in:BTS,Expansion,Inventory',
             'abs_final_use' => 'nullable|in:Logistic,Manufacturing',
             'abs_company_type' => 'nullable|in:Existing Company,New Company in Market,New Company in Mexico',
-            'status' => 'in:Active,Inactive,Draft',
+            'status' => 'in:Enabled,Disabled,Draft',
             'trailer_parking_space' => 'nullable|integer|min:0',
             'fire_protection_system' => [
                 'required',

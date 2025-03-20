@@ -24,7 +24,7 @@ return new class extends Migration
             $table->integer('total_devices')->default(0);
             $table->string('password');
             $table->rememberToken();
-            $table->enum('status', ['Active', 'Inactive'])->default('Active');
+            $table->enum('status', ['Enabled', 'Disabled'])->default('Enabled');
             $table->timestamps();
             $table->softDeletes();
             $table->integer('deleted_by')->nullable();

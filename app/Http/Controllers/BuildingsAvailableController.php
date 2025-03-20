@@ -132,7 +132,7 @@ class BuildingsAvailableController extends ApiController implements HasMiddlewar
             return $this->error('Invalid building state', ['error_code' => 403]);
         }
         if ($buildingAvailable->status == BuildingStatus::DRAFT->value) {
-            return $this->error('Building must to have status Active', ['error_code' => 403]);
+            return $this->error('Building must to have status Enabled', ['error_code' => 403]);
         }
 
         $validated = $request->validated();

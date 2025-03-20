@@ -39,7 +39,7 @@ class UpdateUserRequest extends FormRequest
             'password' => 'sometimes|string|min:8',
             'role_id' => 'nullable|exists:roles,id',
             'total_devices' => 'nullable|integer|min:0',
-            'status' => 'nullable|in:Active,Inactive',
+            'status' => 'nullable|in:Enabled,Disabled',
             'updated_by' => 'nullable|exists:users,id',
         ];
     }

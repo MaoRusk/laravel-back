@@ -42,7 +42,7 @@ class StoreBuildingsAvailableRequest extends FormRequest
             'created_by' => 'nullable|integer|exists:users,id',
             'updated_by' => 'nullable|integer|exists:users,id',
             'avl_building_phase' => 'required|in:Construction,Planned,Sublease,Expiration,Inventory',
-            'status' => 'in:Active,Inactive,Draft',
+            'status' => 'in:Enabled,Disabled,Draft',
             'trailer_parking_space' => 'nullable|integer|min:0',
             'fire_protection_system' => [
                 'required',

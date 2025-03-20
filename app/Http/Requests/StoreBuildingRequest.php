@@ -82,7 +82,7 @@ class StoreBuildingRequest extends FormRequest
                     }
                 }
             ],
-            'status' => 'required|in:Active,Inactive,Pending,Draft',
+            'status' => 'required|in:Enabled,Disabled,Pending,Draft',
             'columns_spacing_ft' => 'string|max:20',
             'bay_size' => 'string|max:20',
             'floor_thickness_in' => 'required|integer|min:0',

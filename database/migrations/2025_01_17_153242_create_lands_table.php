@@ -28,7 +28,7 @@ return new class extends Migration
             $table->string('kvas', 20)->nullable();
             $table->enum('zoning', ['Industrial','Commercial','Residential']);
             $table->enum('parcel_shape', ['Regular', 'Irregular']);
-            $table->enum('status', ['Active', 'Inactive', 'Pending', 'Approved']);
+            $table->enum('status', ['Enabled', 'Disabled', 'Pending', 'Approved']);
             $table->integer('created_by')->nullable();
             $table->integer('updated_by')->nullable();
             $table->integer('deleted_by')->nullable();

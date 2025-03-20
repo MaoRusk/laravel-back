@@ -51,7 +51,7 @@ return new class extends Migration
             $table->set('fire_protection_system', ["Hose Station", "Sprinkler", "Extinguisher"]);
             $table->set('above_market_tis', ["HVAC", "CRANE", "Rail Spur", "Sprinklers", "Crossdock", "Office", "Leed", "Land Expansion"])->nullable();
             $table->boolean('is_negative_absorption')->default(false);
-            $table->enum('status', ['Active', 'Inactive', 'Draft'])->default('Active');
+            $table->enum('status', ['Enabled', 'Disabled', 'Draft'])->default('Enabled');
             $table->integer('created_by')->nullable();
             $table->integer('updated_by')->nullable();
             $table->integer('deleted_by')->nullable();

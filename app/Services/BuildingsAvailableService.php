@@ -179,7 +179,7 @@ class BuildingsAvailableService
      */
     public function update(BuildingAvailable $buildingAvailable, array $validated): BuildingAvailable
     {
-        if (($validated['status'] ?? BuildingStatus::ACTIVE->value) === BuildingStatus::ACTIVE->value) {
+        if (($validated['status'] ?? BuildingStatus::ENABLED->value) === BuildingStatus::ENABLED->value) {
             $this->makeBuildingAvailableLogRecord($buildingAvailable);
          }
         $buildingAvailable->update($validated);
@@ -371,7 +371,7 @@ class BuildingsAvailableService
             if (!empty($validated['above_market_tis']) && is_array($validated['above_market_tis'])) {
                 $validated['above_market_tis'] = implode(',', $validated['above_market_tis']);
             }
-            if (isset($validated['status']) && $validated['status'] === BuildingStatus::ACTIVE->value) {
+            if (isset($validated['status']) && $validated['status'] === BuildingStatus::ENABLED->value) {
                 $updateData = Arr::except($validated, ['status']);
                 $this->makeBuildingAvailableLogRecord($buildingAvailable);
                 $buildingAvailable->update($updateData);

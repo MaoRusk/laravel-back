@@ -8,8 +8,8 @@ enum BuildingStatus: string
 {
     use EnumHelper;
 
-    case ACTIVE = 'Active';
-    case INACTIVE = 'Inactive';
+    case ENABLED = 'Enabled';
+    case DISABLED = 'Disabled';
     case PENDING = 'Pending';
     case DRAFT = 'Draft';
 }
