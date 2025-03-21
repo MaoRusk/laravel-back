@@ -24,18 +24,18 @@ class ConvertToAvailableRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'broker_id' => 'required|integer|exists:cat_brokers,id',
-            'dock_doors' => 'nullable|integer|min:0',
-            'ramps' => 'nullable|integer|min:0',
-            'truck_court_ft' => 'nullable|integer|min:0',
-            'shared_truck' => 'nullable|boolean',
-            'new_construction' => 'nullable|boolean',
-            'is_starting_construction' => 'nullable|boolean',
-            'bay_size' => 'nullable|string|max:45',
-            'parking_space' => 'nullable|integer|min:0',
-            'trailer_parking_space' => 'nullable|integer|min:0',
+            'broker_id' => 'sometimes|integer|exists:cat_brokers,id',
+            'dock_doors' => 'sometimes|integer|min:0',
+            'ramps' => 'sometimes|integer|min:0',
+            'truck_court_ft' => 'sometimes|integer|min:0',
+            'shared_truck' => 'sometimes|boolean',
+            'new_construction' => 'sometimes|boolean',
+            'is_starting_construction' => 'sometimes|boolean',
+            'bay_size' => 'sometimes|string|max:45',
+            'parking_space' => 'sometimes|integer|min:0',
+            'trailer_parking_space' => 'sometimes|integer|min:0',
             'fire_protection_system' => [
-                'required',
+                'sometimes',
                 'array',
                 function ($attribute, $value, $fail) {
                     $allowedValues = ['Hose Station', 'Sprinkler', 'Extinguisher'];
@@ -48,7 +48,7 @@ class ConvertToAvailableRequest extends FormRequest
                 }
             ],
             'above_market_tis' => [
-                'nullable',
+                'sometimes',
                 'array',
                 function ($attribute, $value, $fail) {
                     $allowedValues = ['HVAC', 'CRANE', 'Rail Spur', 'Sprinklers', 'Crossdock', 'Office', 'Leed', 'Land Expansion'];
@@ -61,13 +61,13 @@ class ConvertToAvailableRequest extends FormRequest
                 }
             ],
             'avl_building_dimensions_ft' => 'required|string|max:45',
-            'avl_minimum_space_sf' => 'nullable|integer|min:0',
-            'avl_date' => 'nullable|date',
+            'avl_minimum_space_sf' => 'required|integer|min:0',
+            'avl_date' => 'required|date',
             'avl_min_lease' => 'required|numeric|min:0',
             'avl_max_lease' => 'required|numeric|min:0',
             'avl_type' => 'required|in:Construction,Planned,Sublease,Expiration,Inventory',
             'size_sf' => [
-                'required',
+                'sometimes',
                 'integer',
                 'min:0',
                 function ($attribute, $value, $fail) {
