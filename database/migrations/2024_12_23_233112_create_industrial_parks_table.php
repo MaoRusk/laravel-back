@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('name');
             $table->decimal('total_land_ha', 5, 2)->default(0);
             $table->decimal('available_land_ha', 5,2)->default(0);
+            $table->decimal('reserve_land_ha', 5, 2)->default(0);
             $table->unsignedSmallInteger('building_number')->default(0);
             $table->enum('land_condition', ['Fully Developed','Undeveloped'])->nullable();
             $table->enum('park_type', ['Pocket','Industrial Park','Mega Park'])->default('Pocket');

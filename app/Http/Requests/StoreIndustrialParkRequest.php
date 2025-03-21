@@ -29,6 +29,7 @@ class StoreIndustrialParkRequest extends FormRequest
             'region_id' => 'nullable|integer|exists:cat_regions,id',
             'total_land_ha' => 'nullable|numeric|min:0|max:999.99',
             'available_land_ha' => 'nullable|numeric|min:0|max:999.99',
+            'reserve_land_ha' => 'nullable|numeric|min:0|max:999.99',
             'building_number' => 'nullable|integer|min:0|max:65535',
             'land_condition' => 'nullable|in:Fully Developed,Undeveloped',
             'park_type' => 'in:Pocket,Industrial Park,Mega Park|nullable',

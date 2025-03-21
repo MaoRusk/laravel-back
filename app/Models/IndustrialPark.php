@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * 
+ *
  *
  * @property int $id
  * @property int $market_id
@@ -92,6 +92,7 @@ class IndustrialPark extends Model
         'available_land_ha',
         'building_number',
         'land_condition',
+        'reserve_land_ha',
         'year_built',
         'has_rail_spur',
         'has_natural_gas',
