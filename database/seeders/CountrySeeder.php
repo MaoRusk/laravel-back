@@ -13,7 +13,7 @@ class CountrySeeder extends Seeder
      */
     public function run(): void
     {
-        $path = storage_path('app/countries.csv');
+        $path = storage_path('app/countries-1.csv');
         $file = fopen($path, 'r');
 
         fgetcsv($file);
@@ -23,7 +23,7 @@ class CountrySeeder extends Seeder
         while (($row = fgetcsv($file)) !== false) {
             $data[] = [
                 'id' => $id++,
-                'name' => $row[1],
+                'name' => $row[0],
             ];
         }
 
